@@ -1,0 +1,68 @@
+
+<script type="text/JavaScript">
+
+Object.beget = function(o) {
+    var F = function () {};
+    F.prototype = o;
+    return new F();
+}
+
+var i; 
+
+t = function () {
+    this.name = "a";
+    this.id = "b";
+} 
+
+r = function () {
+    this.extr = "c";
+    this.stuff = "d";
+}
+
+w = function () {
+    this.blah = "7";
+    this.yak = "9";
+}
+
+v = function () {
+    this.more = new r();
+    this.evenmore = new w();
+}
+
+v.prototype = new t();
+
+myv = new v();
+
+/*
+s.proto = Object.beget(t);
+s.more = Object.beget(r);
+
+q = Object.beget(t);
+q.more = Object.beget(r);
+q.more.stuff = "e"; 
+q.more.extr = "f"; 
+
+
+p = [];
+for(i=0;i<10;i++) {
+    p[i] = Object.beget(s);
+    p[i].more.stuff = i.toString();
+} 
+*/
+
+m = [];
+for(i=0;i<10;i++) {
+    m[i] = new v();
+    m[i].id = i;
+    m[i].evenmore.yak = i+"y";
+} 
+
+//document.writeln(s.name);
+document.writeln("hellow, orld\n");
+//console.log(s.name);
+
+</script>
+
+<body>
+
+</body>
